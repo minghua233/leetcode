@@ -1,3 +1,14 @@
+/*
+ * @lc app=leetcode.cn id=85 lang=javascript
+ *
+ * [85] 最大矩形
+ */
+
+// @lc code=start
+/**
+ * @param {character[][]} matrix
+ * @return {number}
+ */
 var maximalRectangle = function (matrix) {
   // 若传入的矩阵为0，返回0
   if (matrix.length === 0) return 0
@@ -30,13 +41,5 @@ var maximalRectangle = function (matrix) {
   // 返回最大矩形
   return maxMatrix
 };
+// @lc code=end
 
-let test = maximalRectangle(
-  [
-    ["1", "0", "1", "0", "0"],
-    ["1", "0", "1", "1", "1"],
-    ["1", "1", "1", "1", "1"],
-    ["1", "0", "0", "1", "0"]
-  ]
-)
-console.log(test);
