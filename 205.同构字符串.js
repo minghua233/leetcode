@@ -1,5 +1,16 @@
+/*
+ * @lc app=leetcode.cn id=205 lang=javascript
+ *
+ * [205] 同构字符串
+ */
+
+// @lc code=start
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
 var isIsomorphic = function (s, t) {
-  if (s.length !== t.length) return false
   let S = Object.create(null),
     T = Object.create(null),
     i = -1
@@ -11,6 +22,5 @@ var isIsomorphic = function (s, t) {
   }
   return true
 };
+// @lc code=end
 
-let test = isIsomorphic('abba', 'abab')
-console.log(test);
