@@ -1,4 +1,5 @@
 var isIsomorphic = function (s, t) {
+  
   if (s.length !== t.length) return false
   let S = Object.create(null),
     T = Object.create(null),
