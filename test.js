@@ -16,6 +16,3 @@ var canPlaceFlowers = function (flowerbed, n) {
 let test = canPlaceFlowers([1, 0, 0, 0, 1], 1)
 console.log(test);
 
-// let arr=[3,2,1]
-// arr.splice(-0,2)
-// console.log(arr);
