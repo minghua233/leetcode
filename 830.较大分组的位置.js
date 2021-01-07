@@ -14,7 +14,9 @@ var largeGroupPositions = function (s) {
   while (++i <= s.length) {
     // 相同异或为0
     if (s.charCodeAt(start) ^ s.charCodeAt(i)) {
+      // 找到较大分组
       if (i - start > 2) res.push([start, i - 1])
+      // 更新起始位置
       start = i
     }
   }
