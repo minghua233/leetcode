@@ -1,25 +1,35 @@
-function isPali(str, left, right) {
-  while (left < right) {
-    if (str[left] != str[right]) {
-      return false
+var findCircleNum = function (isConnected) {
+  let res = 0,  //省份数量
+    i = -1, // 城市下标
+    visited = new Array(isConnected.length).fill(0), //城市是否被访问
+    queue = []  // 城市队列
+  console.log('初始的' + visited);
+  // 遍历所有城市
+  while (++i < isConnected.length) {
+    console.log('循环中' + visited);
+    // 若该城市没有被访问过
+    if (visited[i] === 0) {
+      // 省份数+1
+      res++
+      // 放入城市队列中
+      queue.push(i)
+      // 遍历队列中的城市
+      while (queue.length) {
+        // 取队列中的第一个城市
+        const k = queue.shift()
+        // 将该城市设置为已访问
+        visited[k] = 1
+        // 遍历该城市与其他城市的联通关系
+        for (let j = 0; j < isConnected[k].length; j++)
+          // 若有与该城市相连且未被访问过的其他城市，将其放入城市队列中
+          if (isConnected[k][j] && visited[j] === 0) queue.push(j)
+      }
     }
-    left++
-    right--
   }
-  return true
-}
+  return res
+};
 
-var validPalindrome = function (str) {
-  let i = 0, j = str.length - 1
-  while (i < j) {
-    if (str[i] != str[j]) {
-      return isPali(str, i + 1, j) || isPali(str, i, j - 1)
-    }
-    i++
-    j--
-  }
-  return true
-}
-let test = validPalindrome("abca")
+
+let test = findCircleNum([[1, 1, 0], [1, 1, 0], [0, 0, 1]])
 console.log(test);
 
