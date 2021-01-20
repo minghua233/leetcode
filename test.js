@@ -1,35 +1,12 @@
-var findCircleNum = function (isConnected) {
-  let res = 0,  //省份数量
-    i = -1, // 城市下标
-    visited = new Array(isConnected.length).fill(0), //城市是否被访问
-    queue = []  // 城市队列
-  console.log('初始的' + visited);
-  // 遍历所有城市
-  while (++i < isConnected.length) {
-    console.log('循环中' + visited);
-    // 若该城市没有被访问过
-    if (visited[i] === 0) {
-      // 省份数+1
-      res++
-      // 放入城市队列中
-      queue.push(i)
-      // 遍历队列中的城市
-      while (queue.length) {
-        // 取队列中的第一个城市
-        const k = queue.shift()
-        // 将该城市设置为已访问
-        visited[k] = 1
-        // 遍历该城市与其他城市的联通关系
-        for (let j = 0; j < isConnected[k].length; j++)
-          // 若有与该城市相连且未被访问过的其他城市，将其放入城市队列中
-          if (isConnected[k][j] && visited[j] === 0) queue.push(j)
-      }
-    }
-  }
-  return res
+var maximumProduct = function (nums) {
+  let len = nums.length
+  let sortedNums = nums.sort((a, b) => a - b)
+  let res1 = sortedNums[len - 1] * sortedNums[len - 2] * sortedNums[len - 3],
+    res2 = sortedNums[0] * sortedNums[1] * sortedNums[len - 1]
+  return res1 > res2 ? res1 : res2
 };
 
 
-let test = findCircleNum([[1, 1, 0], [1, 1, 0], [0, 0, 1]])
+let test = maximumProduct([-4, -3, -2, -1, 60])
 console.log(test);
 
